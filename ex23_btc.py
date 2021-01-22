@@ -31,3 +31,19 @@ print(f"raw bytes is \n {raw_bytes}")
 # Decode bytes
 cooked_string = raw_bytes.decode('utf-8', errors='strict')
 print(f"cooked string is \n {cooked_string}")
+
+def main(language_file, encoding, errors):
+    line = language_file.readline()
+
+    if line:
+        print_line(line, encoding, errors)
+        return main(language_file, encoding, errors)
+
+def print_line(line, encoding, errors):
+    next_lang = line.strip() 
+    cooked_string = next_lang.decode(encoding, errors=errors)
+    raw_bytes = cooked_string.encode(encoding, errors=errors)
+
+    print("Reading >>>", raw_bytes, "<===> Ouput >>>", cooked_string)
+
+main(languages, encoding, error)
