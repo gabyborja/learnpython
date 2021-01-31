@@ -21,14 +21,14 @@ PHRASES = {
 }
 
 # do they want to drill phrases first
-if len(sys.argv) == 2 and sys.argv[1] == "english":
+if len(sys.argv) == 2 and sys.argv[1] == "english": # if function call contains 'english', display english phrases first
     PHRASE_FIRST = True
 else:
     PHRASE_FIRST = False
 
 # load up the words from the website
 for word in urlopen(WORD_URL).readlines():
-    WORDS.append(str(word.strip(), encoding="utf-8"))
+    WORDS.append(str(word.strip(), encoding="utf-8")) # DBES Decode Bytes Encode Strings
 
 
 def convert(snippet, phrase):
