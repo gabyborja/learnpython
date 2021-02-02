@@ -14,20 +14,24 @@ class Scene(object):
 class Engine(object):
     
     def __init__(self, scene_map):
+        print(f"Engine __init__")
         self.scene_map = scene_map
-        pass
+        print(f"{scene_map}")
 
     def play(self):
         current_scene = self.scene_map.opening_scene()
+        print(f"Engine.play current scene {current_scene}")
         last_scene = self.scene_map.next_scene('finished')
+        print(f"Engine.play last scene {last_scene}")
 
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
+            print(f"next_scene_name {next_scene_name}")
             current_scene = self.scene_map.next_scene(next_scene_name)
+            print(f"Engine current_scene {current_scene}")
 
             # be sure to print out the last scene
             current_scene.enter()
-        pass
 
 class Death(Scene):
     quips = [
@@ -120,6 +124,7 @@ class LaserWeaponArmory(Scene):
             """))
         
         code = f"{randint(1,9)}{randint(1,9)}{randint(1,9)}"
+        print(code)
         guess = input("[keypad]> ")
         guesses = 0
 
@@ -204,6 +209,7 @@ class EscapePod(Scene):
             """))
 
         good_pod = randint(1,5)
+        print(good_pod)
         guess = input("[pod #]> ")
 
         if int(guess) != good_pod:
@@ -217,7 +223,7 @@ class EscapePod(Scene):
             return 'death'
         
         else:
-            print(dedent("""
+            print(dedent(f"""
                 You jump into pod {guess} and hit the eject button.
                 The pod easily slides out into space heading to the
                 planet below. As it flies to the planet, you look 
@@ -245,13 +251,16 @@ class Map(object):
     }
 
     def __init__(self, start_scene):
+        print(f"start_scene {start_scene}")
         self.start_scene = start_scene
 
     def next_scene(self, scene_name):
         val = Map.scenes.get(scene_name)
+        print(f"next_scene {val}")
         return val
 
     def opening_scene(self):
+        print(f"opening_scene {self.start_scene}")
         return self.next_scene(self.start_scene)
 
 
