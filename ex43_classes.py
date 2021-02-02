@@ -43,8 +43,8 @@ class Death(Scene):
     ]
 
     def enter(self):
-            print(Death.quips[randint(0, len(self.quips)-1)])
-            exit(1)
+        print(Death.quips[randint(0, len(self.quips)-1)])
+        exit(1)
 
 class CentralCorridor(Scene):
 
@@ -140,8 +140,8 @@ class LaserWeaponArmory(Scene):
                 you can to the bridge where you must place it in the 
                 right spot.
                 """))
+            print("returning the_bridge")
             return 'the_bridge'
-        
         else:
             print(dedent("""
                 The lock buzzes one last time and then you hear 
@@ -150,7 +150,7 @@ class LaserWeaponArmory(Scene):
                 Gothons blow up the ship from their ship and you die.
                 """))
 
-            return 'death'
+        return 'death'
 
 class TheBridge(Scene):
 
