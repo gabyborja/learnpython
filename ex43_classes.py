@@ -31,8 +31,8 @@ class Engine(object):
             current_scene = self.scene_map.next_scene(next_scene_name)
             print(f"Engine current_scene {current_scene}")
 
-            # be sure to print out the last scene
-            current_scene.enter()
+        # be sure to print out the last scene
+        current_scene.enter()
 
 class Death(Scene):
     quips = [
