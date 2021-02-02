@@ -25,8 +25,9 @@ class Engine(object):
         print(f"Engine.play last scene {last_scene}")
 
         while current_scene != last_scene:
+            print(f"Engine current_scene {current_scene}")
             next_scene_name = current_scene.enter()
-            print(f"next_scene_name {next_scene_name}")
+            print(f"Engine next_scene_name {next_scene_name}")
             current_scene = self.scene_map.next_scene(next_scene_name)
             print(f"Engine current_scene {current_scene}")
 
@@ -150,8 +151,8 @@ class LaserWeaponArmory(Scene):
                 together. You decide to sit there, and finally the 
                 Gothons blow up the ship from their ship and you die.
                 """))
-
-        return 'death'
+            print("returning 'death'")
+            return 'death'
 
 class TheBridge(Scene):
 
@@ -252,16 +253,16 @@ class Map(object):
     }
 
     def __init__(self, start_scene):
-        print(f"start_scene {start_scene}")
+        print(f"Map start_scene {start_scene}")
         self.start_scene = start_scene
 
     def next_scene(self, scene_name):
         val = Map.scenes.get(scene_name)
-        print(f"next_scene {val}")
+        print(f"Map next_scene {val}")
         return val
 
     def opening_scene(self):
-        print(f"opening_scene {self.start_scene}")
+        print(f"Map opening_scene {self.start_scene}")
         return self.next_scene(self.start_scene)
 
 
