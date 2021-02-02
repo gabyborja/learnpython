@@ -76,7 +76,7 @@ class CentralCorridor(Scene):
             and blast you repeatedly inthe face until you are 
             dead. Then he eats you.
             """))
-            
+            print("returning 'death'")
             return 'death'
         
         elif action == "dodge!":
@@ -88,7 +88,8 @@ class CentralCorridor(Scene):
             wall and pass out. You wake up shortly after only to 
             die as the Gothon stomps on nyour head and eats you.
             """))
-
+            print("returning 'death'")
+            
             return 'death'
         
         elif action == "tell a joke":
@@ -102,7 +103,7 @@ class CentralCorridor(Scene):
             the head putting him down, then jump through the
             Weapon Armory door. 
             """))
-
+            print("returning 'laser_weapon_armory'")
             return 'laser_weapon_armory'
         
         else:
