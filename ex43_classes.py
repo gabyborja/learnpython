@@ -16,23 +16,23 @@ class Engine(object):
     def __init__(self, scene_map):
         print(f"Engine __init__")
         self.scene_map = scene_map
-        print(f"{scene_map}")
+        print(f"Engine __init__ {scene_map}")
 
     def play(self):
-        current_scene = self.scene_map.opening_scene()
-        print(f"Engine.play current scene {current_scene}")
-        last_scene = self.scene_map.next_scene('finished')
+        current_scene = self.scene_map.opening_scene() # Get the opening scene from the map that you specify
+        print(f"Engine.play current scene {current_scene}") 
+        last_scene = self.scene_map.next_scene('finished') # Get the last scene from the map that you specify
         print(f"Engine.play last scene {last_scene}")
 
-        while current_scene != last_scene:
+        while current_scene != last_scene: # Loop through this loop if you haven't reached the last scene
             print(f"Engine current_scene {current_scene}")
-            next_scene_name = current_scene.enter()
+            next_scene_name = current_scene.enter() # enter current scene and return next scene
             print(f"Engine next_scene_name {next_scene_name}")
-            current_scene = self.scene_map.next_scene(next_scene_name)
+            current_scene = self.scene_map.next_scene(next_scene_name) # get the next scene accordinng to the scene map and set to current scene
             print(f"Engine current_scene {current_scene}")
 
         # be sure to print out the last scene
-        current_scene.enter()
+        current_scene.enter() # prints out the last scene after exiting the while loop
 
 class Death(Scene):
     quips = [
@@ -263,9 +263,10 @@ class Map(object):
 
     def opening_scene(self):
         print(f"Map opening_scene {self.start_scene}")
+        print(f"Returning {self.next_scene(self.start_scene)}")
         return self.next_scene(self.start_scene)
 
 
-a_map = Map('central_corridor')
+a_map = Map('central_corridor') 
 a_game = Engine(a_map)
 a_game.play()
