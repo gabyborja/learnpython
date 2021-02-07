@@ -6,6 +6,8 @@
 4. Your runner will need to know about these rooms, so make a class that runs them and knows about them. There are plenty of ways to do this, but consider having each room return what room is next or setting a variable of what room is next. 
 """
 
+from ex45_room_intro import intro_text
+
 class Engine(object):
     def __init__(self, map):
         self.map = map
@@ -37,8 +39,9 @@ class CopperRoom(Room):
     
     def enter(self):
         print("CopperRoom enter")
-        print("You start out in the copper room. Where do you want to go next?")
-        direction = input("> ")
+        direction = intro_text("copper room")
+        #print("You start out in the copper room. Where do you want to go next?")
+        #direction = input("> ")
 
         if direction == 'north':
             "You went north"
@@ -59,8 +62,7 @@ class JadeRoom(Room):
     
     def enter(self):
         print("JadeRoom enter")
-        print("You reached the jade room")
-        direction = input("> ")
+        direction = intro_text("jade room")
 
         if direction == 'north':
             "You went north"
@@ -82,8 +84,7 @@ class CrystalRoom(Room):
     
     def enter(self):
         print("CrystalRoom enter")
-        print("You reached the crystal room room")
-        direction = input("> ")
+        direction = intro_text("crystal room")
 
         if direction == 'north':
             "You went north"
