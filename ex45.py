@@ -37,7 +37,21 @@ class CopperRoom(Room):
     
     def enter(self):
         print("CopperRoom enter")
-        return 'jade_room'
+        print("You start out in the copper room. Where do you want to go next?")
+        direction = input("> ")
+
+        if direction == 'north':
+            "You went north"
+            return 'jade_room'
+        elif direction == 'south':
+            return 'death'
+        elif direction == 'east':
+            return 'death'
+        elif direction == 'west':
+            return 'death'
+        else:
+            "Invalid input"
+            return 'copper_room'
 
 class JadeRoom(Room):
     def __init__(self):
@@ -45,7 +59,22 @@ class JadeRoom(Room):
     
     def enter(self):
         print("JadeRoom enter")
-        return 'crystal_room'
+        print("You reached the jade room")
+        direction = input("> ")
+
+        if direction == 'north':
+            "You went north"
+            return 'crystal_room'
+        elif direction == 'south':
+            return 'death'
+        elif direction == 'east':
+            return 'death'
+        elif direction == 'west':
+            return 'death'
+        else:
+            "Invalid input"
+            return 'jade_room'
+        
 
 class CrystalRoom(Room):
     def __init__(self):
@@ -53,7 +82,21 @@ class CrystalRoom(Room):
     
     def enter(self):
         print("CrystalRoom enter")
-        return 'finished'
+        print("You reached the crystal room room")
+        direction = input("> ")
+
+        if direction == 'north':
+            "You went north"
+            return 'finished'
+        elif direction == 'south':
+            return 'death'
+        elif direction == 'east':
+            return 'death'
+        elif direction == 'west':
+            return 'death'
+        else:
+            "Invalid input"
+            return 'crystal_room'
 
 class Death(Room):
     def __init__(self):
@@ -61,6 +104,7 @@ class Death(Room):
     
     def enter(self):
         print("Death enter")
+        print("You died. Game over.")
         exit(1)
 
 class Finished(Room):
@@ -69,6 +113,7 @@ class Finished(Room):
     
     def enter(self):
         print("Finished enter")
+        print("You reached the end. You win.")
         exit(1)
 
 class Map(object):
