@@ -15,12 +15,23 @@ def scan(user_input):
 
     for word in words:
         print(word)
-        if word in ['north', 'south', 'east']: #check if word belongs to lexicon
-            sentence.append(('direction', word)) # append tuple 
-            print(f'in lexicon {word}')
+        if word in ['north', 'south', 'east']: # direction lexicon
+            sentence.append(('direction', word))
+            print(f'in direction lexicon {word}')
+            print(f'return {sentence}')
+        elif word in ['go', 'stop', 'kill', 'eat']: # verb lexicon
+            sentence.append(('verb', word))
+            print(f'in verb lexicon {word}')
+            print(f'return {sentence}')
+        elif word in ['the', 'in', 'of', 'from', 'at', 'it']: # stop lexicon
+            sentence.append(('stop', word))
+            print(f'in stop lexicon {word}')
+            print(f'return {sentence}')
+        elif word in ['door', 'bear', 'princess', 'cabinet']: # noun lexicon
+            sentence.append(('noun', word))
+            print(f'in noun lexicon {word}')
             print(f'return {sentence}')
         else:
             sentence.append(('error', word))
     
     return sentence
-   # return sentence
