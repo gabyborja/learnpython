@@ -34,4 +34,8 @@ def scan(user_input):
         else:
             sentence.append(('error', word))
     
+    # TO-DO
+    # Checking for numbers, converting numbers, ValueError exception
+    # Lower case upper case -> checks
+
     return sentence
