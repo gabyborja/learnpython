@@ -1,3 +1,9 @@
+def convert_number(s): 
+    try:
+        return int(s)
+    except ValueError:
+        return None
+
 def scan(user_input):
     """Scan user input for words that fit in lexicon
     1. Break up sentence
@@ -32,8 +38,13 @@ def scan(user_input):
             print(f'in noun lexicon {word}')
             print(f'return {sentence}')
         else:
-            sentence.append(('error', word))
-    
+            number = convert_number(word)
+            print(f"word_int {number}")
+            if number != None: 
+                sentence.append(('number', number))
+            else:
+                sentence.append(('error', word))
+                
     # TO-DO
     # Checking for numbers, converting numbers, ValueError exception
     # Lower case upper case -> checks
